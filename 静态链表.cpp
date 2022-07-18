@@ -1,13 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define MaxSize 10
-struct Node{
+#define MaxSize 50
+
+typedef struct Node{
 	int data;
 	int next;
-}; 
+}SLinkList[MaxSize]; 
 
-
-int main(){
-	struct Node a[MaxSize];
-	return 0;
+void testSLinkList(){
+	SLinkList a;
+	printf("size=%d\n",sizeof(a));
 }

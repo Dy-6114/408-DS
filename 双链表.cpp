@@ -41,7 +41,7 @@ bool DeleteNextDNode(DNode *p){
 	return true;
 } 
 
-int main(){
+void testDLinkList(){
 	DLinkList L;
 	InitDLinkList(L);
 }

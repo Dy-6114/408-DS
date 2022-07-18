@@ -186,8 +186,7 @@ bool DeleteNode(LNode *p){
 } 
 
 
-int main(){
+void testLinkList(){
 	LinkList L;
 	InitList(L);
-	return 0;
 }

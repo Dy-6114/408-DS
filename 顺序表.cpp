@@ -42,10 +42,9 @@ int LocateElem(SeqList L,int e){
 	}
 }  
 
-int main() {
+void testSeqList() {
 	SeqList L;
 	InitList(L);
 	L.data[0] = 100;
 	printf("%d\n",L.data[0]);
-	return 0; 
 }

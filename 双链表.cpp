@@ -19,7 +19,7 @@ bool Empty(DLinkList L) {
 	else return false;
 }
 
-//在p结点之后插入s结点
+//鍦╬缁撶偣涔嬪悗鎻掑叆s缁撶偣
 bool InsertNextDNode(DNode *p, DNode *s){
 	s->next = p->next;
 	if(p->next != NULL)
@@ -29,7 +29,7 @@ bool InsertNextDNode(DNode *p, DNode *s){
 	return true;
 }
 
-//删除p的后继节点q
+//鍒犻櫎p鐨勫悗缁ц妭鐐筿
 bool DeleteNextDNode(DNode *p){
 	if(p==NULL) return false;
 	DNode *q = p->next;

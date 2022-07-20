@@ -42,17 +42,6 @@ bool GetHead(SqQueue &Q, int &x){
     return true;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 void main(){
     SqQueue Q;
     InitQueue(Q);

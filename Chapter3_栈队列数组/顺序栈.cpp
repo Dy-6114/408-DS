@@ -3,7 +3,6 @@
 #define MaxSize 50
 
 typedef struct{
-    /* data */
     int data[MaxSize];
     int top;
 }SqStack;

@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include"408-DS/DSfunc.h"
 
 
 bool bracketCheck(char str[], int length){

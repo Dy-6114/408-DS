@@ -1,6 +1,7 @@
 #include<stdlib.h>
 #include<stdio.h>
 #define InitSize 10
+
 typedef struct{
 	int *data;
 	int MaxSize;
@@ -38,13 +39,15 @@ int LocateElem(SeqList L,int e){
 	int i;
 	for(i = 0; i < L.length; i++) {
 		if(L.data[i] == e) return i+1;
-		return 0;
 	}
+	return 0;
 }  
 
-void testSeqList() {
+int main(){
 	SeqList L;
 	InitList(L);
 	L.data[0] = 100;
 	printf("%d\n",L.data[0]);
+
+	return 0;
 }

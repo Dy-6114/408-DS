@@ -1,11 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include"408-DS\DSfunc.h"
+
 #define MaxSize 50
 
-typedef struct{
-    int data[MaxSize];
-    int top;
-}SqStack;
+// typedef struct{
+//     int data[MaxSize];
+//     int top;
+// }SqStack;
 
 //初始化栈
 void InitStack(SqStack &S){
@@ -44,7 +46,7 @@ bool GetTop(SqStack &S, int &x){
     return true;
 }
 
-void main(){
+void testSqStack(){
     SqStack S;
     InitStack(S);
 }

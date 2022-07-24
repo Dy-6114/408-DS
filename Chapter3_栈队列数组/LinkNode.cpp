@@ -1,48 +1,53 @@
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-typedef struct LinkNode{
-	int data;//数据域 
-	struct LinkNode *next;//指针域 
-}LinkNode;
+typedef struct LinkNode
+{
+	int data;			   //数据域
+	struct LinkNode *next; //指针域
+} LinkNode;
 
-typedef struct{
-	LinkNode *front,*rear;
-}LinkQueue;
+typedef struct
+{
+	LinkNode *front, *rear;
+} LinkQueue;
 
-//void InitQueue(LinkQueue &Q) { //不带头结点 
+// void InitQueue(LinkQueue &Q) { //不带头结点
 //	Q.front = NULL;
 //	Q.rear = NULL;
-//}
+// }
 
-void InitQueue(LinkQueue &Q) { //带头结点 
+void InitQueue(LinkQueue &Q)
+{ //带头结点
 	Q.front = Q.rear = (LinkNode *)malloc(sizeof(LinkNode));
 	Q.front->next = NULL;
 }
 
-//判空：不带头结点 
+//判空：不带头结点
 // bool IsEmpty(LinkQueue Q) {
-// 	if(Q.front == Q.rear) 
+// 	if(Q.front == Q.rear)
 // 		return true;
-// 	else 
+// 	else
 // 		return false;
 // }
 
 //判空：带头结点
-bool IsEmpty(LinkQueue Q) {
-	if(Q.front==NULL) 
+bool IsEmpty(LinkQueue Q)
+{
+	if (Q.front == NULL)
 		return true;
-	else 
-		return false;//不带头结点 
+	else
+		return false; //不带头结点
 }
 
 //入队
-void EnQueue(LinkQueue &Q, int e){//带头结点 
+void EnQueue(LinkQueue &Q, int e)
+{ //带头结点
 	LinkNode *s = (LinkNode *)malloc(sizeof(LinkNode));
-	s->data=e;
-	s->next=NULL;
-	Q.rear->next=s;
-	Q.rear=s;
+	s->data = e;
+	s->next = NULL;
+	Q.rear->next = s;
+	Q.rear = s;
 }
 
 // void EnQueue(LinkQueue &Q, int e){//不带头结点
@@ -55,18 +60,21 @@ void EnQueue(LinkQueue &Q, int e){//带头结点
 // 	}else{
 // 		Q.rear->next=s;
 // 	Q.rear=s;
-// 	}	
+// 	}
 // }
 
 //出队
-bool DeQueue(LinkQueue &Q, int &x){//带头结点
-	if(Q.front == Q.rear){
+bool DeQueue(LinkQueue &Q, int &x)
+{ //带头结点
+	if (Q.front == Q.rear)
+	{
 		return false;
 	}
 	LinkNode *p = Q.front->next;
 	x = p->data;
 	Q.front->next = p->next;
-	if(Q.rear == p){
+	if (Q.rear == p)
+	{
 		Q.rear = Q.front;
 	}
 	free(p);
@@ -88,7 +96,8 @@ bool DeQueue(LinkQueue &Q, int &x){//带头结点
 // 	return true;
 // }
 
-void main(){
+void main()
+{
 	LinkQueue Q;
 	InitQueue(Q);
 }

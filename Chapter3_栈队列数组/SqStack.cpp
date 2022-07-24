@@ -2,10 +2,11 @@
 #include <stdlib.h>
 #define MaxSize 50
 
-typedef struct{
+typedef struct
+{
     char data[MaxSize];
     int top;
-}SqStack;
+} SqStack;
 
 //初始化栈
 void InitStack(SqStack &S)

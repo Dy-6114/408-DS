@@ -83,6 +83,68 @@ int Index(SString S, SString T)
     return 0;
 }
 
+//（朴素模式匹配）
+int Inedex_PM(SString S, SString T)
+{
+    int i = 1, j = 1;
+    while (i <= S.length && j <= T.length)
+    {
+        if (S.ch[i] == T.ch[j])
+        {
+            ++i;
+            ++j;
+        }
+        else
+        {
+            i = i - j + 2;
+            j = 1;
+        }
+        if (j > T.length)
+            return i - T.length;
+        else
+            return 0;
+    }
+}
+
+//（kmp算法）
+int Index_KMP(SString S, SString T, int next[])
+{
+    int i = 1, j = 1;
+    while (i <= S.length && j <= T.length)
+    {
+        if (j == 0 || S.ch[i] == T.ch[j])
+        {
+            ++i;
+            ++j;
+        }
+        else
+            j = next[j]; // next[]为部分匹配值表
+    }
+    if (j > T.length)
+        return i - T.length;
+    else
+        return 0;
+}
+
+void get_next(SString T, int next[])
+{
+    int i = 1, j = 0;
+    next[1] = 0;
+    while (i < T.length)
+    {
+        if (j == 0 || T.ch[i] == T.ch[j])
+        {
+            ++i;
+            ++j;
+            next[i] = j;
+        }
+        else
+        {
+            j = next[j];
+        }
+    }
+}
+
 //清空串
 void ClearString(SString &S)
 {

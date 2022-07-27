@@ -5,7 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct ElemType{
+typedef struct ElemType
+{
     int value;
 };
 
@@ -13,74 +14,108 @@ typedef struct BiTNode
 {
     ElemType data;
     struct BiTNode *lchild, *rchild;
-}BiTNode, *BiTree;
+} BiTNode, *BiTree;
 
-void visit(BiTree T){
+void visit(BiTree T)
+{
     printf("%d", T->data.value);
 }
 
 //先序遍历
-void PreOrder(BiTree T){
-    if (T!=NULL) {
+void PreOrder(BiTree T)
+{
+    if (T != NULL)
+    {
         visit(T);
         PreOrder(T->lchild);
         PreOrder(T->rchild);
     }
 }
 
-void PreOrder2(BiTree T){
+void PreOrder2(BiTree T)
+{
     SqStack S;
     InitStack(S);
-    BiTree p=T;
+    BiTree p = T;
     while (p || !StackEmpty(S))
     {
-        if(p){
+        if (p)
+        {
             visit(p);
-            Push(S,p);
+            Push(S, p);
             p = p->lchild;
-        }else{
-            Pop(S,p);
+        }
+        else
+        {
+            Pop(S, p);
             p = p->rchild;
         }
     }
-    
 }
 
 //中序遍历
-void InOrder(BiTree T){
-    if (T!=NULL) {
+void InOrder(BiTree T)
+{
+    if (T != NULL)
+    {
         InOrder(T->lchild);
         visit(T);
         InOrder(T->rchild);
     }
 }
 
-void InOrder2(BiTree T){
+void InOrder2(BiTree T)
+{
     SqStack S;
     InitStack(S);
-    BiTree p=T;
+    BiTree p = T;
     while (p || !StackEmpty(S))
     {
-        if(p){
-            Push(S,p);
+        if (p)
+        {
+            Push(S, p);
             p = p->lchild;
-        }else{
-            Pop(S,p);
+        }
+        else
+        {
+            Pop(S, p);
             visit(p);
             p = p->rchild;
         }
     }
+}
 
 //后序遍历
-void PostOrder(BiTree T){
-    if (T!=NULL) {
+void PostOrder(BiTree T)
+{
+    if (T != NULL)
+    {
         PostOrder(T->lchild);
         PostOrder(T->rchild);
         visit(T);
     }
 }
 
-int main(){
+//层次遍历
+void LevelOrder(BiTree T)
+{
+    Squeue Q;
+    InitQueue(Q);
+    EnQueue(T);
+    BiTree p;
+    while (!EmptyQueue(Q))
+    {
+        DeQueue(Q, p);
+        visit(p);
+        if (p->lchild != NULL)
+            EnQueue(Q, p->lchild);
+        if (p->rchild != NULL)
+            EnQueue(Q, p->rchild);
+    }
+}
+
+int main()
+{
     //插入根结点
     BiTree root = NULL;
     root = (BiTNode *)malloc(sizeof(BiTNode));

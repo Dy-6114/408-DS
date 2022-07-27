@@ -34,13 +34,13 @@ bool bracketCheck(char str[], int length)
 
 int main()
 {
-    char a[5] = {'(', ')', '(', ')', '['};
+    char a[4] = {'(', ')', '(', ')'};
     // for (int i = 0; i < 5; i++)
     // {
     //     printf("%c ",a[i]);
     // }
     // printf("\n");
-    int b = bracketCheck(a, 5);
+    int b = bracketCheck(a, 4);
     printf("\n%d", b);
     return 0;
 }

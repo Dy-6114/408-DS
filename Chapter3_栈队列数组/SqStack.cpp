@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #define MaxSize 50
 
+typedef char elemType;
+
 typedef struct
 {
-    char data[MaxSize];
+    elemType data[MaxSize];
     int top;
 } SqStack;
 
@@ -24,7 +26,7 @@ bool StackEmpty(SqStack S)
 }
 
 //进栈操作：新元素入栈
-bool Push(SqStack &S, char x)
+bool Push(SqStack &S, elemType x)
 {
     if (S.top == MaxSize - 1)
         return false;
@@ -33,7 +35,7 @@ bool Push(SqStack &S, char x)
 }
 
 //出栈操作：栈顶元素出栈
-bool Pop(SqStack &S, char &x)
+bool Pop(SqStack &S, elemType &x)
 {
     if (S.top == -1)
         return false;
@@ -42,7 +44,7 @@ bool Pop(SqStack &S, char &x)
 }
 
 //读栈顶元素
-bool GetTop(SqStack &S, char &x)
+bool GetTop(SqStack &S, elemType &x)
 {
     if (S.top == -1)
         return false;

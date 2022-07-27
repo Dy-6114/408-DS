@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #define MaxSize 50
 
+typedef BiTree elem;
+
 typedef struct
 {
     int front, rear;
-    int data[MaxSize];
+    elem data[MaxSize];
 } SqQueue;
 
 //初始化
@@ -24,7 +26,7 @@ bool QueueEmpty(SqQueue Q)
 }
 
 //入队
-bool EnQueue(SqQueue &Q, int x)
+bool EnQueue(SqQueue &Q, elem x)
 {
     if ((Q.rear + 1) % MaxSize == Q.front)
         return false;
@@ -34,7 +36,7 @@ bool EnQueue(SqQueue &Q, int x)
 }
 
 //出队
-bool DeQueue(SqQueue &Q, int &x)
+bool DeQueue(SqQueue &Q, elem &x)
 {
     if (Q.rear == Q.front)
         return false;
@@ -44,7 +46,7 @@ bool DeQueue(SqQueue &Q, int &x)
 }
 
 //获得队头元素
-bool GetHead(SqQueue &Q, int &x)
+bool GetHead(SqQueue &Q, elem &x)
 {
     if (Q.rear == Q.front)
         return false;

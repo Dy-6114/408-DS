@@ -1,3 +1,5 @@
+//线索二叉树
+
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct ElemType

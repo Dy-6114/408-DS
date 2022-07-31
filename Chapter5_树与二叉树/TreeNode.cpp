@@ -1,4 +1,4 @@
-//顺序存储：一定要把二叉树的节点编号与完全二叉树对应起来
+//树的顺序存储：一定要把二叉树的节点编号与完全二叉树对应起来
 #include <stdio.h>
 #include <stdlib.h>
 #define MaxSize 100

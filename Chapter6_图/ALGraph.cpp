@@ -1,3 +1,5 @@
+//邻接表法
+
 #include<stdio.h>
 #include<stdlib.h>
 #define MaxVertexNum 100

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #define MaxSize 50
 
-typedef char elemType;
+typedef BiTree elemType;
 
 typedef struct
 {

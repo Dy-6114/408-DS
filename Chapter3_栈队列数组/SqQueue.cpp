@@ -53,10 +53,3 @@ bool GetHead(SqQueue &Q, elem &x)
     x = Q.data[Q.front];
     return true;
 }
-
-void main()
-{
-    SqQueue Q;
-    InitQueue(Q);
-    //后续操作。。。。
-}

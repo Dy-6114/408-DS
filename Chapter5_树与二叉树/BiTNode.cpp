@@ -6,11 +6,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include"D:\考研\408\408-DS\Chapter3_栈队列数组\SqStack.cpp" //有错误
+#include"D:\考研\408\408-DS\Chapter3_栈队列数组\SqQueue.cpp" //有错误
 
-typedef struct ElemType
-{
-    int value;
-};
+typedef int ElemType;
 
 typedef struct BiTNode
 {
@@ -20,7 +19,7 @@ typedef struct BiTNode
 
 void visit(BiTree T)
 {
-    printf("%d", T->data.value);
+    printf("%d", T->data);
 }
 
 //先序遍历
@@ -101,11 +100,11 @@ void PostOrder(BiTree T)
 //层次遍历
 void LevelOrder(BiTree T)
 {
-    Squeue Q;
+    SqQueue Q;
     InitQueue(Q);
-    EnQueue(T);
+    EnQueue(Q,T);
     BiTree p;
-    while (!EmptyQueue(Q))
+    while (!QueueEmpty(Q))
     {
         DeQueue(Q, p);
         visit(p);
@@ -116,21 +115,21 @@ void LevelOrder(BiTree T)
     }
 }
 
-int main()
-{
-    //插入根结点
-    BiTree root = NULL;
-    root = (BiTNode *)malloc(sizeof(BiTNode));
-    root->data = {1};
-    root->lchild = NULL;
-    root->rchild = NULL;
+// int main()
+// {
+//     //插入根结点
+//     BiTree root = NULL;
+//     root = (BiTNode *)malloc(sizeof(BiTNode));
+//     root->data = {1};
+//     root->lchild = NULL;
+//     root->rchild = NULL;
 
-    //插入新结点
-    BiTNode *p = (BiTNode *)malloc(sizeof(BiTNode));
-    p->data = {2};
-    root->lchild = p;
-    p->rchild = NULL;
-    p->lchild = NULL;
+//     //插入新结点
+//     BiTNode *p = (BiTNode *)malloc(sizeof(BiTNode));
+//     p->data = {2};
+//     root->lchild = p;
+//     p->rchild = NULL;
+//     p->lchild = NULL;
 
-    InOrder(root);
-}
+//     InOrder(root);
+// }

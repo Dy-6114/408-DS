@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void swap(ElemType a,ElemType b);
+void swap(ElemType a,ElemType b);//交换记录信息，相比于直接插入而言移动次数更低。
 
 void SelectSort(ElemType A[],int n){
     int min;
@@ -10,10 +10,10 @@ void SelectSort(ElemType A[],int n){
         min = i;
         for(int j = i+ 1;j<n;j++){
             if(A[j]<A[min])
-                min =j;
+                min =j; //每趟记录最小值的下标
         }
         if(min != i)
-            swap(A[min],A[i]);
+            swap(A[min],A[i]); 
     }
     
 }

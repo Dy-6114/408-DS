@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//一趟快速排序实现pivot左边的关键字都比它小，右边的都比它大
 int Partition(ElemType A[], int low, int high)
 {
     ElemType pivot = A[low];
@@ -14,7 +15,7 @@ int Partition(ElemType A[], int low, int high)
         A[high] = A[low];    
     }
     A[low] = pivot;
-    return low;
+    return low; 
 }
 
 void QuickSort(ElemType A[], int low, int high)

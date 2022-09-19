@@ -27,7 +27,7 @@ void HeapSort(ElemType A[],int len){
     BuildMaxHeap(A,len);
     for (int  i = len; i > 1; i--)
     {
-        Swap(A[i],A[i-1]);
+        Swap(A[i],A[1]);
         HeadAdjust(A,1,i-1);
     }
     

@@ -85,7 +85,7 @@ LNode *GetElem(LinkList L, int i)
 	return p;
 }
 
-//按值插入，找到数据域==e的结点
+//按值查找，找到数据域==e的结点
 LNode *LocateElem(LinkList L, int e)
 {
 	LNode *p = L->next;

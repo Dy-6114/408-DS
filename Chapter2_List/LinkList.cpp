@@ -71,12 +71,10 @@ bool Empty(LinkList L)
 //按位查找，返回第i个元素（带头结点）
 LNode *GetElem(LinkList L, int i)
 {
-	int j = 1;
-	LNode *p = L->next;
-	if (i == 0)
-		return L;
-	if (i < 1)
+	if (i < 0)
 		return NULL;
+	int j = 0;
+	LNode *p = L;
 	while (p != NULL && j < i)
 	{
 		p = p->next;
@@ -85,7 +83,7 @@ LNode *GetElem(LinkList L, int i)
 	return p;
 }
 
-//按值插入，找到数据域==e的结点
+//按值查找，找到数据域==e的结点
 LNode *LocateElem(LinkList L, int e)
 {
 	LNode *p = L->next;

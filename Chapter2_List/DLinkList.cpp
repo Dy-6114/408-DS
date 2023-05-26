@@ -29,7 +29,7 @@ bool Empty(DLinkList L)
 bool InsertNextDNode(DNode *p, DNode *s)
 {
 	s->next = p->next;
-	if (p->next != NULL)
+	if (p->next != NULL) //p不是最后一个结点
 		p->next->prior = s;
 	s->prior = p;
 	p->next = s;
@@ -45,7 +45,7 @@ bool DeleteNextDNode(DNode *p)
 	if (q == NULL)
 		return false;
 	p->next = q->next;
-	if (q->next != NULL)
+	if (q->next != NULL) //p不是最后一个结点
 		q->next->prior = p;
 	free(q);
 	return true;

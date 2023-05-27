@@ -1,3 +1,5 @@
+//十字链表
+
 #include <string>
 using namespace std;
 typedef string InfoType;

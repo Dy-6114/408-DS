@@ -8,7 +8,7 @@ void BubbleSort(ElemType A[], int n)
     for (int i = 0; i < n - 1; i++)
     {
         bool flag = false;
-        for (int j = n - 1; j > i; i--) //从后往前
+        for (int j = n - 1; j > i; j--) //从后往前
         {
             if (A[j - 1] > A[j])
             {

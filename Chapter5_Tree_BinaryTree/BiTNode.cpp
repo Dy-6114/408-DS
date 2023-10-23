@@ -1,4 +1,4 @@
-//二叉树
+// 二叉树
 
 /*代码中与栈相关的部分由第三章实现，其中接口位置可能存在问题，而且我是个新手。
 遇到的问题：1、引用.h文件不会，写了.h发现和cpp文件链接不上。
@@ -6,8 +6,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include"D:\考研\408\408-DS\Chapter3_栈队列数组\SqStack.cpp" //有错误
-#include"D:\考研\408\408-DS\Chapter3_栈队列数组\SqQueue.cpp" //有错误
+#include "D:\考研\408\408-DS\Chapter3_栈队列数组\SqStack.cpp" //有错误
+#include "D:\考研\408\408-DS\Chapter3_栈队列数组\SqQueue.cpp" //有错误
 
 typedef int ElemType;
 
@@ -15,6 +15,7 @@ typedef struct BiTNode
 {
     ElemType data;
     struct BiTNode *lchild, *rchild;
+    int flag; // 非递归后序遍历时，记录结点的访问次数
 } BiTNode, *BiTree;
 
 void visit(BiTree T)
@@ -22,7 +23,7 @@ void visit(BiTree T)
     printf("%d", T->data);
 }
 
-//先序遍历
+// 递归先序遍历
 void PreOrder(BiTree T)
 {
     if (T != NULL)
@@ -33,6 +34,7 @@ void PreOrder(BiTree T)
     }
 }
 
+// 非递归先序遍历
 void PreOrder2(BiTree T)
 {
     SqStack S;
@@ -54,7 +56,7 @@ void PreOrder2(BiTree T)
     }
 }
 
-//中序遍历
+// 递归中序遍历
 void InOrder(BiTree T)
 {
     if (T != NULL)
@@ -65,6 +67,7 @@ void InOrder(BiTree T)
     }
 }
 
+// 非递归中序遍历
 void InOrder2(BiTree T)
 {
     SqStack S;
@@ -86,7 +89,7 @@ void InOrder2(BiTree T)
     }
 }
 
-//后序遍历
+// 递归后序遍历
 void PostOrder(BiTree T)
 {
     if (T != NULL)
@@ -97,12 +100,45 @@ void PostOrder(BiTree T)
     }
 }
 
-//层次遍历
+// 非递归后序遍历
+void PostOrder2(BiTree T)
+{
+    /*遍历过程中，会发现树根及子树的树根会被访问两次，为了避免这个问题，
+    第一次遇到的时候不访问，而第二次遇到的时候再访问，因此引入了一个访问标志。*/
+    SqStack S;
+    InitStack(S);
+    BiTNode *p = T;
+    while (p || !StackEmpty(S))
+    {
+        if (p)
+        {
+            Push(S, p);    // 结点入栈
+            p = p->lchild; // 向左子树走
+        }
+        else
+        { // p为空，则出栈
+            Pop(S, p);
+            if (p->rchild == NULL || p->flag == 1) //如果结点右子树为空，或者该结点是返回时的第二次被访问即第二次入栈的情况，则访问
+            {
+                visit(p);
+                p == NULL; //进入下一次循环
+            }
+            else//右子树非空，则该节点重新入栈，设标志位为1，之后访问结点的右子树
+            {
+                Push(S, p);
+                p->flag = 1;
+                p = p->rchild;
+            }
+        }
+    }
+}
+
+// 层次遍历
 void LevelOrder(BiTree T)
 {
     SqQueue Q;
     InitQueue(Q);
-    EnQueue(Q,T);
+    EnQueue(Q, T);
     BiTree p;
     while (!QueueEmpty(Q))
     {
